@@ -20,11 +20,11 @@ void task3() {
     }
 
     // TODO 1: Load the YOLO network model via cv::dnn::readNet().
-    cv::dnn::Net net = cv::dnn::readNet(model_path);
+
 
     rs2::pipeline pipe;
     rs2::config cfg;
-    cfg.enable_stream(RS2_STREAM_COLOR, 1280, 720, RS2_FORMAT_BGR8, 30);
+    cfg.enable_stream(RS2_STREAM_COLOR, 640, 480, RS2_FORMAT_BGR8, 30);
     pipe.start(cfg);
     while (true) {
         rs2::frameset frames = pipe.wait_for_frames();
@@ -43,20 +43,12 @@ void task3() {
         cv::Mat input;
 
         // TODO 2: Convert the image into the format compatible with YOLO input.
-        cv::resize(frame, input, cv::Size(640, 640));
-        cv::Mat blob = cv::dnn::blobFromImage(
-            input,
-            1.0 / 255.0,
-            cv::Size(640, 640),
-            cv::Scalar(),
-            true,
-            false
-        );
+
 
         std::vector<cv::Mat> outputs;
         // TODO 3: Run the model inference.
-        net.setInput(blob);
-        net.forward(outputs, net.getUnconnectedOutLayersNames());
+
+
 
 
         if (outputs.empty()) {

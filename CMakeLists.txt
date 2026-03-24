@@ -7,10 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(isdn3000e_lab7 main.cpp
         tasks/task1.cpp
         tasks/task1.h
-        tasks/task2.cpp
-        tasks/task2.h
-        tasks/task3.cpp
-        tasks/task3.h
+#        tasks/task2.cpp
+#        tasks/task2.h
+#        tasks/task3.cpp
+#        tasks/task3.h
 )
 
 find_package(OpenCV REQUIRED PATHS /usr/local/lib/cmake/opencv4 NO_DEFAULT_PATH)
